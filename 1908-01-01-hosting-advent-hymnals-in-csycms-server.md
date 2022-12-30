@@ -8,7 +8,6 @@ tags: [technical, server]
 class: post-template
 subclass: 'post'
 author: brian
-permalink: /abc/
 ---
 
 
