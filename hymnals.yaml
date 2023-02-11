@@ -1,0 +1,9 @@
+blog:
+  name: Blog
+  abbvr: blog
+  year: '2023'
+  numSongs: '0'
+  lang: en
+  compiler: Brian Onang'o
+  link: 'blog'
+  gtLink: adventHymnals/blog_pages
