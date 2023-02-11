@@ -1,0 +1,100 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Advent Hymnals",
+    "section": "",
+    "text": "Alt Text"
+  },
+  {
+    "objectID": "index.html#what-is-contained-in-advent-hymnals",
+    "href": "index.html#what-is-contained-in-advent-hymnals",
+    "title": "Advent Hymnals",
+    "section": "What is contained in Advent Hymnals?",
+    "text": "What is contained in Advent Hymnals?\nThis is an ambitious project, already spanning more than a year. At the end of it, it should be able to achieve the following:\n\nText for all the songs in all hymnals used by Adventist from Millenial Harp of 1843 all the way to the present one.\nTunes for all of these hymns.\nLinks to renditions of these songs if they exist, or to those sang by singing software if human renditions of the same are not available.\nIdentify and make visible all points where there is an error in any of the songs, such as in Millenial Harp where it says of the second advent Gabriel sounds his mighty trumpet. This is part of singing with understanding.\nIdentify all changes that have been introduced in the modern hymnals and the reasons behind those changes.\nAvail all this data in an easy to use mobile phone application.\nAvail also a desktop application for personal use or for projecting in public worship."
+  },
+  {
+    "objectID": "index.html#then-what",
+    "href": "index.html#then-what",
+    "title": "Advent Hymnals",
+    "section": "Then What?",
+    "text": "Then What?\nYou may not have the priviledge of singing these songs in your church. Maybe you belong to one of those churches where most people know but a few songs and they never ever want to learn any new one, so that it is the same rounds meeting after meeting. But remember that in your family worship you can sing these. We will continue doing all that we can so as to make learning the songs here so easy that a child uneducated in music can learn them on his own.\nAs you continue singing, you will learn such deep Bible truths that can never be effaced."
+  },
+  {
+    "objectID": "index.html#how-to-use",
+    "href": "index.html#how-to-use",
+    "title": "Advent Hymnals",
+    "section": "How to Use",
+    "text": "How to Use\nYou can scroll through the available hymnals using the menu where you will also be able to access some studies in music.\n\nStructure\nThe following structure has been adopted for the hymns to enable as much information as possible to be given for any particular hymn:-\nEach hymn page has two sections:\n\nThe top section having the text/lyrics of the hymn in question.\nA bottom section having additional information about the hymn, including:\n\n\n\n\n\n\n\n\nItem\nDescription\n\n\n\n\nTitle\nThe title of the hymn\n\n\nTitles\nOther titles, or other phrases by which the hymn is popularly known\n\n\nFirst Line\nThe first line of the hymn, or a considerably short portion of its first line\n\n\nKey\nThe key in which the music was written. The key is not cast in stone; it can be transposed to any key for comfortable singing.\n\n\nAuthor\nThe author of the song\n\n\nYear\nWhen the song was written. A comma separates two dates (the year written and year translated) for songs that were translated from other languages.\n\n\nComposer\nThe composer of the music\n\n\nHymnal\nOriginal Hymnal where hymn was picked from (mostly for translated songs)\n\n\nTune\nThe name of the tune\n\n\nMetrical pattern\nThe metrical pattern. Used to create an index of songs which can be sung using the same tune.\n\n\n# Stanzas\nThe number of stanzas in the song. This is used for comparing the song across different hymnals\n\n\nChorus\nIf the hymn has a chorus\n\n\nChorus Type\nThis is either of (1) Refrain or (2) Chorus, where a refrain has a leading voice while a chorus has not.\n\n\nSubjects\nThe specific subject the song addresses, eg second advent, Christian Standards, etc.\n\n\nTexts\nComma separate list of scripture passages to which the song is relevant.\n\n\nPrint Texts\nThe texts of the passages to which the song is relevant\n\n\nScripture Song\nIf the song is a scripture song"
+  },
+  {
+    "objectID": "blog/hosting-advent-hymnals-in-csycms-server.html",
+    "href": "blog/hosting-advent-hymnals-in-csycms-server.html",
+    "title": "Advent Hymnals",
+    "section": "",
+    "text": "Csycms is a flat file content management system for nodejs which we developed about 4 to 5 years back. It has served us well hosting both the sites for Advent Hymnals as well as the Sabbath School Lessons Archive before we moved it to github pages. And now we have to retire it. While we could keep improving it to keep up with our current needs, that will be time and resources not wisely spent. We have now fully adopted github pages as our host for advent hymnals, and mainly because it is free. But as we work on the migration, there may be need to migrate our csycms system from one server to another. So here are the instructions incase this need should arise."
+  },
+  {
+    "objectID": "blog/hosting-advent-hymnals-in-csycms-server.html#requirements",
+    "href": "blog/hosting-advent-hymnals-in-csycms-server.html#requirements",
+    "title": "Advent Hymnals",
+    "section": "Requirements",
+    "text": "Requirements\n\nAn ubuntu server\nNode.js >=14.0.0 <18.0.0\nNginx. You can use Apache or any other webserver of your choice. But we only have configurations for nginx.\ncertbot\n\nOne you have set up these requirements, you are good to go. If you are not sure how to go about it you can check out the instructions elsewhere in the internet."
+  },
+  {
+    "objectID": "blog/hosting-advent-hymnals-in-csycms-server.html#installation",
+    "href": "blog/hosting-advent-hymnals-in-csycms-server.html#installation",
+    "title": "Advent Hymnals",
+    "section": "Installation",
+    "text": "Installation\nFirst install csycms:\nnpm install -g csycms\nThen initialize it and create service files:\nsudo csycms init\nThen install advent hymnals site:\ncsycms site --create -n adventhymnals -p 8710 -r https://github.com/GospelSounders/adventhymnals.git -d adventhymnals.org\nThen make changes to configurations in /etc/csycms/sites-enabled/adventhymnals.yml. A working configuration is found here\nsudo /etc/csycms/sites-enabled/adventhymnals.yml\nBe sure to change: - domain. Assets will not be loaded if this is wrong - scheme. If this is wrong, assets will not be loaded properly. - site.space - site.title - copyright.title - copyright.url - copyright.name\nNow its time to setup nginx to act as a proxy to our csycms server. Sample configuration is found here. You can have it either an independent file in the nginx config directory or set it up as a block in the main config. Since it redirects all traffic to ssl, you will need to get some ssl certificates. You will use certbot for this.\nsudo certbot certonly --nginx -d adventhymnals.org\nNow restart both csycms and nginx:\nsudo systemctl restart nginx\nsudo systemctl restart csycms"
+  },
+  {
+    "objectID": "blog/using-csycms-format-hymnals-in-quarto.html",
+    "href": "blog/using-csycms-format-hymnals-in-quarto.html",
+    "title": "Advent Hymnals",
+    "section": "",
+    "text": "Csycms is a flat file content management system for nodejs which we developed about 4 to 5 years back in 2018. It has served us well hosting both the sites for Advent Hymnals as well as the Sabbath School Lessons Archive before we moved it to github pages. And now we have to retire it. While we could keep improving it to keep up with our current needs, that will be time and resources not wisely spent. We have now fully adopted github pages as our host for advent hymnals, and mainly because it is free. While there are several options available for us to use gh-pages, it seems to us at the moment, especially between quarto and jekyll that quarto is the better for us of the two. Here we explain how to use the the hymnals in the csycms format they are currently in in quarto. The reason for maintaining that format is so that there is just a single set of documents to easy any editing work that might be done which can be used across a wide range of tools. And the choice of using csycms means that we will also later need to explain how to create the csycms document structure for any new hymnals whichmay need to be added."
+  },
+  {
+    "objectID": "blog/using-csycms-format-hymnals-in-quarto.html#downloading-the-hymnals-repository",
+    "href": "blog/using-csycms-format-hymnals-in-quarto.html#downloading-the-hymnals-repository",
+    "title": "Advent Hymnals",
+    "section": "1. Downloading the hymnals repository",
+    "text": "1. Downloading the hymnals repository\nThe first step is to download the hymnals list available in a yaml format. The hymnals list contains also links to blogs. The blogs are available in jekyll format instead of csycms.\nwget -O hymnals.yaml https://raw.githubusercontent.com/adventHymnals/hymnals/master/hymnals.yaml"
+  },
+  {
+    "objectID": "blog/using-csycms-format-hymnals-in-quarto.html#installing-yq",
+    "href": "blog/using-csycms-format-hymnals-in-quarto.html#installing-yq",
+    "title": "Advent Hymnals",
+    "section": "2. Installing yq",
+    "text": "2. Installing yq\nThen we install yq to be able to read yaml files in bash\nsudo wget https://github.com/mikefarah/yq/releases/download/v4.4.1/yq_linux_amd64 -O /usr/bin/yq &&\\\nsudo chmod +x /usr/bin/yq"
+  },
+  {
+    "objectID": "blog/using-csycms-format-hymnals-in-quarto.html#downloading-the-hymnals",
+    "href": "blog/using-csycms-format-hymnals-in-quarto.html#downloading-the-hymnals",
+    "title": "Advent Hymnals",
+    "section": "3. Downloading the hymnals",
+    "text": "3. Downloading the hymnals\nThe downloaded hymnal-list has all hymnals that we would like to have at the end of the project. However, not all hymnals are available just yet. These lack a value for gtLink and are ignored. All the rest are downloaded into the directory having the name given in link.\nyq e   '. | keys' hymnals.yaml | while read -r line ; do     # get all keys(hymnal shortnames)\n    hymnal=$(echo $line |cut -b 3-) # remove the leading dash and whitespace (- blog -> blog)\n    # check if gtLink is available and clone into $link\n    gtLink=$(yq e \".$hymnal.gtLink\" hymnals.yaml)\n    if [ \"$gtLink\" != \"null\" ]; then\n        gtLink=\"https://github.com/$gtLink.git\"\n        link=$(yq e \".$hymnal.link\"  hymnals.yaml)\n        rm -rf \"$link\" && git clone $gtLink $link\n    fi\ndone"
+  },
+  {
+    "objectID": "blog/using-csycms-format-hymnals-in-quarto.html#replace-some-values",
+    "href": "blog/using-csycms-format-hymnals-in-quarto.html#replace-some-values",
+    "title": "Advent Hymnals",
+    "section": "4. Replace some values",
+    "text": "4. Replace some values\nThe Navigation field in the jekyll files cannot be processed by quarto. So we need to change these to toc. Find recursive and replace\nfind . -name \"*.md\" | xargs sed -i \"s/^Navigation:/toc:/gi\"\nfind . -name \"*.qmd\" | xargs sed -i \"s/^Navigation:/toc:/gi\""
+  },
+  {
+    "objectID": "blog/using-csycms-format-hymnals-in-quarto.html#remove-date-from-jekyll-file-paths.",
+    "href": "blog/using-csycms-format-hymnals-in-quarto.html#remove-date-from-jekyll-file-paths.",
+    "title": "Advent Hymnals",
+    "section": "5. Remove date from jekyll file paths.",
+    "text": "5. Remove date from jekyll file paths.\nWe can’t use regex in the name to match \\.q?md. Since we have only one optional character, we can use or.\nfind . -wholename \"*/[0-9][0-9][0-9][0-9]\\-[0-9][0-9]\\-[0-9][0-9]-*.qmd\" -or -wholename \"*/[0-9][0-9][0-9][0-9]\\-[0-9][0-9]\\-[0-9][0-9]-*.md\" | while read -r line ; do \n    newPath=$( echo $line | sed -e 's|/[0-9][0-9][0-9][0-9]\\-[0-9][0-9]\\-[0-9][0-9]-|/|g' )\n    mv \"$line\" \"$newPath\"\ndone"
+  },
+  {
+    "objectID": "blog/using-csycms-format-hymnals-in-quarto.html#rename-csycms-files",
+    "href": "blog/using-csycms-format-hymnals-in-quarto.html#rename-csycms-files",
+    "title": "Advent Hymnals",
+    "section": "6. Rename csycms files",
+    "text": "6. Rename csycms files\nWe start by removing the directory numbers from the paths.\nfind . -wholename \"*/[0-9][0-9].*\"  | sort -r | while read -r line ; do \n    reversed=$( echo $line|rev) # use reverse so we can replace the last occurence as the first\n    newPath=$( echo $reversed | sed -e 's|\\.[0-9][0-9]/|/|g' |rev ) \n    \n    #last dir\n    lastDir=$(echo $newPath|rev |sed -e 's|^[^/]*/||g' |rev ) \n    echo \"mv $line $newPath\\n$lastDir\" >> lines.txt\n    mkdir -p \"$lastDir\"\n    mv \"$line\" \"$newPath\"\n    # if [ -d \"$newPath\" ]; then\n    #     echo \"cp -r $line/* $newPath/\" >> lines.txt\n    #     cp -r \"$line/* $newPath/\" && rm -rf \"$line\"\n    # else\n    #     mv \"$line\" \"$newPath\"\n    # fi\ndone\nThen we rename chaper.md to index.md\nfind . -wholename \"*/chapter.md\"  | while read -r line ; do \n    newPath=$( echo $line | sed -e 's|/chapter\\.md|/index.md|' ) \n    mv \"$line\" \"$newPath\"\ndone\nThen we rename all docs.md\nfind . -wholename \"*/docs.md\"  | while read -r line ; do \n    newPath=$( echo $line | sed -e 's|/\\([^\\]*\\)/docs\\.md|/\\1.md|' ) \n    mv \"$line\" \"$newPath\"\ndone\nThen we remove all empty directories\nfind . -type d -empty -delete\nThe complete script is available here.\nAdd it to the github workflow:\n- name: Download and process csycms hymnals\n        run: |\n          wget -O csycmstoquarto.sh https://raw.githubusercontent.com/adventHymnals/resources/master/scripts/csycmstoquarto.sh\n          chmod +x csycmstoquarto.sh\n          ./csycmstoquarto.sh"
+  }
+]
