@@ -57,9 +57,15 @@ Now its time to setup nginx to act as a proxy to our csycms server. Sample confi
 sudo certbot certonly --nginx -d adventhymnals.org
 ```
 
+Install csycms GS theme
+
+```bash
+sudo csycms theme pull GS
+```
+
 Now restart both csycms and nginx:
 
-```
+```bash
 sudo systemctl restart nginx
 sudo systemctl restart csycms
 ```
