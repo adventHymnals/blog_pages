@@ -39,7 +39,7 @@ csycms site --create -n adventhymnals -p 8710 -r https://github.com/GospelSounde
 
 Then make changes to configurations in `/etc/csycms/sites-enabled/adventhymnals.yml`. A working configuration is found [here](https://github.com/adventHymnals/resources/blob/master/configurations/adventhymnals.yml)
 ```
-sudo /etc/csycms/sites-enabled/adventhymnals.yml
+sudo nano /etc/csycms/sites-enabled/adventhymnals.yml
 ```
 
 Be sure to change:
