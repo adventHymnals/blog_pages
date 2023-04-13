@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.2.475">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -213,7 +213,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Then install advent hymnals site:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">csycms</span> site <span class="at">--create</span> <span class="at">-n</span> adventhymnals <span class="at">-p</span> 8710 <span class="at">-r</span> https://github.com/GospelSounders/adventhymnals.git <span class="at">-d</span> adventhymnals.org</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Then make changes to configurations in <code>/etc/csycms/sites-enabled/adventhymnals.yml</code>. A working configuration is found <a href="https://github.com/adventHymnals/resources/blob/master/configurations/adventhymnals.yml">here</a></p>
-<pre><code>sudo /etc/csycms/sites-enabled/adventhymnals.yml</code></pre>
+<pre><code>sudo nano /etc/csycms/sites-enabled/adventhymnals.yml</code></pre>
 <p>Be sure to change: - domain. Assets will not be loaded if this is wrong - scheme. If this is wrong, assets will not be loaded properly. - site.space - site.title - copyright.title - copyright.url - copyright.name</p>
 <p>Now its time to setup nginx to act as a proxy to our csycms server. Sample configuration is found <a href="https://github.com/adventHymnals/resources/blob/master/configurations/adventhymnals-nginxconfiguration">here</a>. You can have it either an independent file in the nginx config directory or set it up as a block in the main config. Since it redirects all traffic to ssl, you will need to get some ssl certificates. You will use certbot for this.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> certbot certonly <span class="at">--nginx</span> <span class="at">-d</span> adventhymnals.org</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
