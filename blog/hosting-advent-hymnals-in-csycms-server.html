@@ -217,9 +217,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Be sure to change: - domain. Assets will not be loaded if this is wrong - scheme. If this is wrong, assets will not be loaded properly. - site.space - site.title - copyright.title - copyright.url - copyright.name</p>
 <p>Now its time to setup nginx to act as a proxy to our csycms server. Sample configuration is found <a href="https://github.com/adventHymnals/resources/blob/master/configurations/adventhymnals-nginxconfiguration">here</a>. You can have it either an independent file in the nginx config directory or set it up as a block in the main config. Since it redirects all traffic to ssl, you will need to get some ssl certificates. You will use certbot for this.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> certbot certonly <span class="at">--nginx</span> <span class="at">-d</span> adventhymnals.org</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Install csycms GS theme</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> csycms theme pull GS</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Now restart both csycms and nginx:</p>
-<pre><code>sudo systemctl restart nginx
-sudo systemctl restart csycms</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl restart nginx</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl restart csycms</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>
