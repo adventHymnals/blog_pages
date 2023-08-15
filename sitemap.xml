@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://adventhymnals.org/index.html</loc>
-    <lastmod>2023-04-13T20:05:47.051Z</lastmod>
+    <loc>https://adventhymnals.org/blog/hosting-advent-hymnals-in-csycms-server.html</loc>
+    <lastmod>2023-08-15T06:36:38.632Z</lastmod>
   </url>
   <url>
-    <loc>https://adventhymnals.org/blog/hosting-advent-hymnals-in-csycms-server.html</loc>
-    <lastmod>2023-04-13T20:05:49.775Z</lastmod>
+    <loc>https://adventhymnals.org/index.html</loc>
+    <lastmod>2023-08-15T06:36:34.564Z</lastmod>
   </url>
   <url>
     <loc>https://adventhymnals.org/blog/using-csycms-format-hymnals-in-quarto.html</loc>
-    <lastmod>2023-04-13T20:05:50.359Z</lastmod>
+    <lastmod>2023-08-15T06:36:38.108Z</lastmod>
   </url>
 </urlset>
