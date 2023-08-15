@@ -27,6 +27,12 @@ First install csycms:
 npm install -g csycms
 ```
 
+or 
+
+```bash
+sudo npm install -g csycms --unsafe-perm
+```
+
 Then initialize it and create service files:
 ```bash
 sudo csycms init
@@ -35,6 +41,12 @@ sudo csycms init
 Then install advent hymnals site:
 ```bash
 csycms site --create -n adventhymnals -p 8710 -r https://github.com/GospelSounders/adventhymnals.git -d adventhymnals.org
+```
+
+or 
+
+```bash
+sudo csycms site --create -n adventhymnals -p 8710 -r https://github.com/GospelSounders/adventhymnals.git -d adventhymnals.org
 ```
 
 Then make changes to configurations in `/etc/csycms/sites-enabled/adventhymnals.yml`. A working configuration is found [here](https://github.com/adventHymnals/resources/blob/master/configurations/adventhymnals.yml)
